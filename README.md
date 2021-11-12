@@ -27,4 +27,4 @@ Al menos una mayúscula
 Al menos una minúscula
 Al menos un caracter extraño
 
-Escribe una función que compruebe que la dirección web es correcta Prueba
+Escribe una función que compruebe que la dirección web es correcta
