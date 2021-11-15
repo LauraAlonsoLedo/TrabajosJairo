@@ -77,12 +77,15 @@
 
                         </option>
                     </select>
-                <label>Código Postal: </label><input type="text"><br/>
+                <label>Código Postal: </label><input type="text" name ="cp"><br/>
                 <label>Teléfono: </label><input type="text">
-                <label>Email: </label><input type="text"><br/>
+                <label>Email: </label><input type="text" name="email"><br/>
                 <label>Password: </label><input type="password">
                 <label>Web: </label><input type="text"><br/>
-            <input type="submit" name="enviar" value="Enviar">
+    </form>
+
+    <form action="PHP/logica.php" method="post">
+        <input type="submit" name="enviar" value="enviar">
     </form>
 </body>
 </html>
