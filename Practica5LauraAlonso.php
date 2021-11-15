@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="CSSFormulario.css">
+    <link rel="stylesheet" href="CSS/CSSFormulario.css">
     <title>Document</title>
 </head>
 <?php
@@ -65,7 +65,7 @@
 ?>
 <body>
     <h1>Formulario de Entrada de datos</h1>
-    <form action="" method="post">
+    <form action="PHP/logica.php" method="post">
             <h3>Datos del Formulario</h3>
                 <label>Nombre: </label><input type="text">
                 <label>Apellidos: </label><input type="text"><br/>
@@ -73,7 +73,9 @@
                 <label>Ciudad: </label><input type="text"><br/>
                 <label>Provincia: </label>
                     <select>
-                        <option></option>
+                        <option>
+
+                        </option>
                     </select>
                 <label>Código Postal: </label><input type="text"><br/>
                 <label>Teléfono: </label><input type="text">
