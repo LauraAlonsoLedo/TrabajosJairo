@@ -65,7 +65,7 @@ $_SESSION['provincias'] = [
 ?>
 <body>
 <h1>Formulario de Entrada de datos</h1>
-<form action="logica.php" method="post">
+<form action="PHP/logica.php" method="post">
     <table>
         <th rowspan="1">
             <td><h3>Datos del Formulario</h3></td>
