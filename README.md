@@ -1,5 +1,5 @@
 # TrabajosJairo
-Mi primer repositorio
+URL Servidor : http://ec2-15-188-194-91.eu-west-3.compute.amazonaws.com/Practica5/index.php
 
 Desarrolla en parejas un formulario de entrada de datos personales de una empresa de la temática que elijáis (no se puede repetir) que incluya los campos: nombre y apellidos, dirección, ciudad, provincia (un select con todas las provincias de España junto con sus códigos de provincia que se cargan de un fichero), código postal, teléfono, email, password y web. Si para las más complicadas se utilizan recursos web perfecto, siempre que se comenten adecuadamente.
 
