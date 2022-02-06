@@ -88,7 +88,8 @@ article .card-info{
 }
 
 .card.horizontal.small .card-image{
-    max-height: 20%;
+    max-height: 70%;
+    margin-left: 10px;
 }
 
 .card.horizontal.small .card-image img{
