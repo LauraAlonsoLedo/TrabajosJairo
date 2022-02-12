@@ -1,5 +1,5 @@
 <h3>
-    <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a> <span>| Usuarios</span>
+    <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a> <span>| Vecinos</span>
 </h3>
 <div class="row">
     <!--Nuevo-->
@@ -7,13 +7,13 @@
         <div class="card horizontal admin">
             <div class="card-stacked">
                 <div class="card-content">
-                    <i class="grey-text material-icons medium">person</i>
+                    <i class="grey-text material-icons medium">image</i>
                     <h4 class="grey-text">
-                        nuevo usuario
+                        Nuevo vecino
                     </h4><br><br>
                 </div>
                 <div class="card-action">
-                    <a href="<?php echo $_SESSION['home']."admin/usuarios/crear" ?>" title="Añadir nuevo usuario">
+                    <a href="<?php echo $_SESSION['home']."admin/vecinos/crear" ?>" title="Añadir nuevo vecino">
                         <i class="material-icons">add_circle</i>
                     </a>
                 </div>
@@ -24,23 +24,34 @@
         <article class="col s12 l6">
             <div class="card horizontal  sticky-action admin">
                 <div class="card-stacked">
+                    <?php if ($row->imagen){ ?>
+                        <div class="card-image">
+                            <img src="<?php echo $_SESSION['public']."img/".$row->imagen ?>" alt="<?php echo $row->nombre ?>">
+                        </div>
+                    <?php } ?>
                     <div class="card-content">
-                        <i class="material-icons medium">person</i>
+                        <?php if (!$row->imagen){ ?>
+                            <i class="grey-text material-icons medium">image</i>
+                        <?php } ?>
                         <h4>
-                            <?php echo $row->usuario ?>
+                            <?php echo $row->nombre ?>
                         </h4>
-                        <strong>Usuarios: </strong><?php echo ($row->usuarios) ? "Sí" : "No" ?><br>
-                        <strong>Vecinos: </strong><?php echo ($row->vecinos) ? "Sí" : "No" ?>
+                        <strong>URL amigable:</strong> <?php echo $row->id ?><br>
                     </div>
                     <div class="card-action">
-                        <a href="<?php echo $_SESSION['home']."admin/usuarios/editar/".$row->id ?>" title="Editar">
+                        <a href="<?php echo $_SESSION['home']."admin/vecinos/editar/".$row->id ?>" title="Editar">
                             <i class="material-icons">edit</i>
                         </a>
                         <?php $title = ($row->activo == 1) ? "Desactivar" : "Activar" ?>
                         <?php $color = ($row->activo == 1) ? "green-text" : "red-text" ?>
                         <?php $icono = ($row->activo == 1) ? "mood" : "mood_bad" ?>
-                        <a href="<?php echo $_SESSION['home']."admin/usuarios/activar/".$row->id ?>" title="<?php echo $title ?>">
+                        <a href="<?php echo $_SESSION['home']."admin/vecinos/activar/".$row->id ?>" title="<?php echo $title ?>">
                             <i class="<?php echo $color ?> material-icons"><?php echo $icono ?></i>
+                        </a>
+                        <?php $title = ($row->home == 1) ? "Quitar de la home" : "Mostrar en la home" ?>
+                        <?php $color = ($row->home == 1) ? "green-text" : "red-text" ?>
+                        <a href="<?php echo $_SESSION['home']."admin/vecinos/home/".$row->id ?>" title="<?php echo $title ?>">
+                            <i class="<?php echo $color ?> material-icons">home</i>
                         </a>
                         <a href="#" class="activator" title="Borrar">
                             <i class="material-icons">delete</i>
@@ -49,12 +60,12 @@
                 </div>
                 <!--Confirmación de borrar-->
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Borrar usuario<i class="material-icons right">close</i></span>
+                    <span class="card-title grey-text text-darken-4">Borrar vecino<i class="material-icons right">close</i></span>
                     <p>
-                        ¿Está seguro de que quiere borrar al usuario<strong><?php echo $row->usuario ?></strong>?<br>
+                        ¿Está seguro de que quiere borrar el vecino<strong><?php echo $row->nombre ?></strong>?<br>
                         Esta acción no se puede deshacer.
                     </p>
-                    <a href="<?php echo $_SESSION['home']."admin/usuarios/borrar/".$row->id ?>" title="Borrar">
+                    <a href="<?php echo $_SESSION['home']."admin/vecinos/borrar/".$row->id ?>" title="Borrar">
                         <button class="btn waves-effect waves-light" type="button">Borrar
                             <i class="material-icons right">delete</i>
                         </button>

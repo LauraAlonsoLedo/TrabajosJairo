@@ -30,9 +30,9 @@
                 <li>
                     <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a>
                 </li>
-                <?php if ($_SESSION['noticias'] == 1){ ?>
+                <?php if ($_SESSION['vecinos'] == 1){ ?>
                     <li>
-                        <a href="<?php echo $_SESSION['home'] ?>admin/noticias" title="Noticias">Noticias</a>
+                        <a href="<?php echo $_SESSION['home'] ?>admin/vecinos" title="Vecinos">Vecinos</a>
                     </li>
                 <?php } ?>
                 <?php if ($_SESSION['usuarios'] == 1){ ?>
@@ -57,9 +57,9 @@
         <li>
             <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a>
         </li>
-        <?php if ($_SESSION['noticias'] == 1){ ?>
+        <?php if ($_SESSION['vecinos'] == 1){ ?>
             <li>
-                <a href="<?php echo $_SESSION['home'] ?>admin/noticias" title="Noticias">Noticias</a>
+                <a href="<?php echo $_SESSION['home'] ?>admin/vecinos" title="Vecinos">Vecinos</a>
             </li>
         <?php } ?>
         <?php if ($_SESSION['usuarios'] == 1){ ?>

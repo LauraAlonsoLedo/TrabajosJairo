@@ -10,7 +10,7 @@ class Usuario {
     var $fecha_acceso;
     var $activo;
     var $usuarios;
-    var $noticias;
+    var $vecinos;
 
     function __construct($data=null){
 
@@ -20,7 +20,7 @@ class Usuario {
         $this->fecha_acceso = ($data) ? $data->fecha_acceso : null;
         $this->activo = ($data) ? $data->activo : null;
         $this->usuarios = ($data) ? $data->usuarios : null;
-        $this->noticias = ($data) ? $data->noticias : null;
+        $this->vecinos = ($data) ? $data->vecinos : null;
 
     }
 

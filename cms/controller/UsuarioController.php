@@ -62,7 +62,7 @@ class UsuarioController
                     //Asigno el usuario y los permisos la sesión
                     $_SESSION["usuario"] = $usuario->usuario;
                     $_SESSION["usuarios"] = $usuario->usuarios;
-                    $_SESSION["noticias"] = $usuario->noticias;
+                    $_SESSION["vecinos"] = $usuario->vecinos;
 
                     //Guardo la fecha de último acceso
                     $ahora = new \DateTime("now", new \DateTimeZone("Europe/Madrid"));
@@ -193,7 +193,7 @@ class UsuarioController
             $usuario = filter_input(INPUT_POST, "usuario", FILTER_SANITIZE_STRING);
             $clave = filter_input(INPUT_POST, "clave", FILTER_SANITIZE_STRING);
             $usuarios = (filter_input(INPUT_POST, 'usuarios', FILTER_SANITIZE_STRING) == 'on') ? 1 : 0;
-            $noticias = (filter_input(INPUT_POST, 'noticias', FILTER_SANITIZE_STRING) == 'on') ? 1 : 0;
+            $vecinos = (filter_input(INPUT_POST, 'vecinos', FILTER_SANITIZE_STRING) == 'on') ? 1 : 0;
             $cambiar_clave = (filter_input(INPUT_POST, 'cambiar_clave', FILTER_SANITIZE_STRING) == 'on') ? 1 : 0;
 
             //Encripto la clave
@@ -202,7 +202,7 @@ class UsuarioController
             if ($id == "nuevo"){
 
                 //Creo un nuevo usuario
-                $this->db->exec("INSERT INTO usuarios (usuario, clave, noticias, usuarios) VALUES ('$usuario','$clave_encriptada',$noticias,$usuarios)");
+                $this->db->exec("INSERT INTO usuarios (usuario, clave, vecinos, usuarios) VALUES ('$usuario','$clave_encriptada',$vecinos,$usuarios)");
 
                 //Mensaje y redirección
                 $this->view->redireccionConMensaje("admin/usuarios","green","El usuario <strong>$usuario</strong> se creado correctamente.");
@@ -211,8 +211,8 @@ class UsuarioController
 
                 //Actualizo el usuario
                 ($cambiar_clave) ?
-                    $this->db->exec("UPDATE usuarios SET usuario='$usuario',clave='$clave_encriptada',noticias=$noticias,usuarios=$usuarios WHERE id='$id'") :
-                    $this->db->exec("UPDATE usuarios SET usuario='$usuario',noticias=$noticias,usuarios=$usuarios WHERE id='$id'");
+                    $this->db->exec("UPDATE usuarios SET usuario='$usuario',clave='$clave_encriptada',vecinos=$vecinos,usuarios=$usuarios WHERE id='$id'") :
+                    $this->db->exec("UPDATE usuarios SET usuario='$usuario',vecinos=$vecinos,usuarios=$usuarios WHERE id='$id'");
 
                 //Mensaje y redirección
                 $this->view->redireccionConMensaje("admin/usuarios","green","El usuario <strong>$usuario</strong> se actualizado correctamente.");

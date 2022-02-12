@@ -6,7 +6,7 @@ session_start();
 
 //Incluyo los controladores que voy a utilizar para que seran cargados por Autoload
 use App\Controller\AppController;
-use App\Controller\NoticiaController;
+use App\Controller\VecinoController;
 use App\Controller\UsuarioController;
 
 /*
@@ -46,7 +46,7 @@ function autoload($clase,$dir=null){
 function controlador($nombre=null){
     switch($nombre){
         default: return new AppController;//front-end
-        case "noticias": return new NoticiaController;//back-end noticias
+        case "vecinos": return new VecinoController;//back-end vecinos
         case "usuarios": return new UsuarioController;//back-end usuario
     }
 }
@@ -65,11 +65,11 @@ switch ($ruta){
     case "acerca-de":
         controlador()->acercade();
         break;
-    case "noticias":
-        controlador()->noticias();
+    case "vecinos":
+        controlador()->vecinos();
         break;
-    case (strpos($ruta,"noticia/") === 0):
-        controlador()->noticia(str_replace("noticia/","",$ruta));//el parámetro es lo que hay después de noticia/
+    case (strpos($ruta,"vecino/") === 0):
+        controlador()->vecino(str_replace("vecino/","",$ruta));//el parámetro es lo que hay después de vecino/
         break;
 
     //Back-end
@@ -95,23 +95,23 @@ switch ($ruta){
     case (strpos($ruta,"admin/usuarios/borrar/") === 0):
         controlador("usuarios")->borrar(str_replace("admin/usuarios/borrar/","",$ruta));
         break;
-    case "admin/noticias":
-        controlador("noticias")->index();
+    case "admin/vecinos":
+        controlador("vecinos")->index();
         break;
-    case "admin/noticias/crear":
-        controlador("noticias")->crear();
+    case "admin/vecinos/crear":
+        controlador("vecinos")->crear();
         break;
-    case (strpos($ruta,"admin/noticias/editar/") === 0):
-        controlador("noticias")->editar(str_replace("admin/noticias/editar/","",$ruta));
+    case (strpos($ruta,"admin/vecinos/editar/") === 0):
+        controlador("vecinos")->editar(str_replace("admin/vecinos/editar/","",$ruta));
         break;
-    case (strpos($ruta,"admin/noticias/activar/") === 0):
-        controlador("noticias")->activar(str_replace("admin/noticias/activar/","",$ruta));
+    case (strpos($ruta,"admin/vecinos/activar/") === 0):
+        controlador("vecinos")->activar(str_replace("admin/vecinos/activar/","",$ruta));
         break;
-    case (strpos($ruta,"admin/noticias/home/") === 0):
-        controlador("noticias")->home(str_replace("admin/noticias/home/","",$ruta));
+    case (strpos($ruta,"admin/vecinos/home/") === 0):
+        controlador("vecinos")->home(str_replace("admin/vecinos/home/","",$ruta));
         break;
-    case (strpos($ruta,"admin/noticias/borrar/") === 0):
-        controlador("noticias")->borrar(str_replace("admin/noticias/borrar/","",$ruta));
+    case (strpos($ruta,"admin/vecinos/borrar/") === 0):
+        controlador("vecinos")->borrar(str_replace("admin/vecinos/borrar/","",$ruta));
         break;
     case (strpos($ruta,"admin/") === 0):
         controlador("usuarios")->entrar();

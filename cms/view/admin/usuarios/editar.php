@@ -31,9 +31,9 @@
         <div class="row">
             <p>Permisos</p>
             <p>
-                <label for="noticias">
-                    <input id="noticias" name="noticias" type="checkbox" <?php echo ($datos->noticias == 1) ? "checked" : "" ?>>
-                    <span>Noticias</span>
+                <label for="vecinos">
+                    <input id="vecinos" name="vecinos" type="checkbox" <?php echo ($datos->vecinos == 1) ? "checked" : "" ?>>
+                    <span>Vecinos</span>
                 </label>
             </p>
             <p>

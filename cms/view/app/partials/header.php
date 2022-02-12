@@ -29,7 +29,7 @@
                 <a href="<?php echo $_SESSION['home'] ?>" title="Inicio">Inicio</a>
             </li>
             <li>
-                <a href="<?php echo $_SESSION['home'] ?>noticias" title="Noticias">Noticias</a>
+                <a href="<?php echo $_SESSION['home'] ?>vecinos" title="Vecinos">Vecinos</a>
             </li>
             <li>
                 <a href="<?php echo $_SESSION['home'] ?>acerca-de" title="Acerca de">Acerca de</a>
@@ -52,7 +52,7 @@
         <a href="<?php echo $_SESSION['home'] ?>" title="Inicio">Inicio</a>
     </li>
     <li>
-        <a href="<?php echo $_SESSION['home'] ?>noticias" title="Noticias">Noticias</a>
+        <a href="<?php echo $_SESSION['home'] ?>vecinos" title="Vecinos">Vecinos</a>
     </li>
     <li>
         <a href="<?php echo $_SESSION['home'] ?>acerca-de" title="Acerca de">Acerca de</a>

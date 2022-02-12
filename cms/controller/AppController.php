@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Model\Noticia;
+use App\Model\Vecino;
 use App\Helper\ViewHelper;
 use App\Helper\DbHelper;
 
@@ -28,13 +28,13 @@ class AppController
         $rowset = $this->db->query("SELECT * FROM vecinos ORDER BY id ASC");
 
         //Asigno resultados a un array de instancias del modelo
-        $noticias = array();
+        $vecinos = array();
         while ($row = $rowset->fetch(\PDO::FETCH_OBJ)){
-            array_push($noticias,new Noticia($row));
+            array_push($vecinos,new Vecino($row));
         }
 
         //Llamo a la vista
-        $this->view->vista("app", "index", $noticias);
+        $this->view->vista("app", "index", $vecinos);
     }
 
     public function acercade(){
@@ -44,33 +44,33 @@ class AppController
 
     }
 
-    public function noticias(){
+    public function vecinos(){
 
         //Consulta a la bbdd
         $rowset = $this->db->query("SELECT * FROM vecinos ORDER BY id ASC ");
 
         //Asigno resultados a un array de instancias del modelo
-        $noticias = array();
+        $vecinos = array();
         while ($row = $rowset->fetch(\PDO::FETCH_OBJ)){
-            array_push($noticias,new Noticia($row));
+            array_push($vecinos,new Vecino($row));
         }
 
         //Llamo a la vista
-        $this->view->vista("app", "noticias", $noticias);
+        $this->view->vista("app", "vecinos", $vecinos);
 
     }
 
-    public function noticia($slug){
+    public function vecino($slug){
 
         //Consulta a la bbdd
         $rowset = $this->db->query("SELECT * FROM vecinos WHERE id='$slug' LIMIT 1");
 
         //Asigno resultado a una instancia del modelo
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $noticia = new Noticia($row);
+        $vecino = new Vecino($row);
 
         //Llamo a la vista
-        $this->view->vista("app", "noticia", $noticia);
+        $this->view->vista("app", "vecino", $vecino);
 
     }
 }

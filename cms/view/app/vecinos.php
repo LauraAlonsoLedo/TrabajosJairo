@@ -1,4 +1,6 @@
-<h3>Inicio</h3>
+<h3>
+    <a href="<?php echo $_SESSION['home'] ?>" title="Inicio">Inicio</a> <span>| Vecinos</span>
+</h3>
 <div class="row">
     <?php foreach ($datos as $row){ ?>
         <article class="col m12 l6">
